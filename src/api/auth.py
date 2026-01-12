@@ -18,6 +18,7 @@ router = APIRouter()
 
 @router.post(
     "/signup",
+    "/signup/", # Add this line for trailing slash compatibility
     response_model=AuthResponse,
     responses={
         409: {"model": ErrorResponse, "description": "Email already registered"},
