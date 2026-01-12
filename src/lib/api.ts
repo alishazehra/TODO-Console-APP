@@ -11,14 +11,13 @@ import type {
   ErrorResponse,
 } from "@/types"
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
-
+const API_BASE_PATH = "/api/v1"; // Use Vercel rewrite
 class ApiClient {
   private client: AxiosInstance;
 
   constructor() {
     this.client = axios.create({
-      baseURL: `${API_URL}/api/v1`,
+      baseURL: API_BASE_PATH,
       withCredentials: true,
       headers: {
         "Content-Type": "application/json",
@@ -59,7 +58,7 @@ class ApiClient {
   // Auth endpoints
   async signup(data: SignupRequest): Promise<AuthResponse> {
     const response: AxiosResponse<AuthResponse> = await this.client.post(
-      "/auth/signup-test",
+      "/auth/signup",
       data
     );
     return response.data;
