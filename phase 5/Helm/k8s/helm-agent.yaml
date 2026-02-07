@@ -1,0 +1,8 @@
+agent:
+  name: helm-agent
+  actions:
+    - build_image
+    - push_image
+    - deploy_helm
+    - verify_health
+    - rollback_on_failure
