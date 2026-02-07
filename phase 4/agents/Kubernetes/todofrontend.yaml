@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: todo-frontend
-        image: yourdockerhubusername/todo-frontend:latest
+        image: alisha215/todo-frontend:latest
         ports:
         - containerPort: 3000
         env:
